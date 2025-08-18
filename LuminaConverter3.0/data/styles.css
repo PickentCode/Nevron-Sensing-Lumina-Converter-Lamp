@@ -1,0 +1,337 @@
+@font-face {
+  font-family: cinzel_dec;
+  src: url(cinzel_dec.otf);
+}
+
+@font-face {
+  font-family: cinzel;
+  src: url(cinzel.otf);
+}
+
+:root {
+    --background: #0f0f12;
+    --background2: #17171c;
+    --text: #e8e6df;
+    --elements: #cc5458;
+    --elements2: #e0ba74; /* #e7cfa1 */
+    --edge: #2a2a33;
+}
+
+body {
+    font-family: cinzel;
+    background-color: var(--background);
+    color: var(--text);
+    padding: 10px;
+}
+
+.wrapper {
+    display: flex;  
+    flex-flow: row wrap;
+    font-weight: bold;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.wrapper > * {
+    padding: 8px;
+    flex: 1 100%;
+    margin: 4px;
+}
+
+hr {
+    border: 1px solid var(--edge);
+}
+
+.main {
+    background-color: var(--background2);
+    text-align: left;
+    border: 1px solid var(--edge);
+    border-radius: 5px;
+    box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.404);
+    max-height: 700px;
+}
+
+.aside {
+    background-color: var(--background2);
+    border: 1px solid var(--edge);
+    border-radius: 5px;
+    box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.404);
+    max-height: 700px;
+}
+
+.asideHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid var(--edge);
+    
+    position: sticky;
+    top: 0;
+    background: var(--background2);
+    z-index: 1;
+}
+
+.asideList {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--elements2) transparent;
+    max-height: 90%;
+}
+
+.asideList::-webkit-scrollbar {
+    width: 10px;
+}
+
+.asideList::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.asideList::-webkit-scrollbar-thumb {
+    background-color: var(--elements2);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.asideList::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in oklab, var(--elements2), #000 15%);
+}
+
+.asideTitle {
+    margin: 0;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+}
+
+@media all and (min-width: 600px) {
+    .aside { flex: 1 0 0; }
+}
+
+@media all and (min-width: 800px) {
+    .main { flex: 3 0px; }
+    .aside { order: 1; }
+    .main { order: 2; }
+}
+
+input[type="color"] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    height: 40px;
+    padding: 0;
+    margin-right: 15px;
+    width: 40px;
+    border: none;
+    outline: 2px solid var(--edge);
+}
+
+h1 {
+    font-size: 35px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+p {
+    font-family: cinzel_dec;
+    font-weight: 100;
+    font-size: 15px;
+}
+
+img {
+    border: 2px solid var(--edge);
+    border-radius: 10px;
+}
+
+label input {
+    margin-left: 10px;
+}
+
+select, button, input[type="number"] {
+    background-color: var(--background2);
+    color: var(--text);
+    font-family: cinzel_dec;
+    font-weight: 100;
+    font-size: 12px;
+    outline: 2px solid var(--elements2);
+    border: none;
+    border-radius: 5px;
+    padding: 7px;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+button:active {
+    outline: 4px solid var(--elements2);
+}
+
+.nevron {
+    font-size: 20px;
+    font-weight: 100;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid var(--edge);
+    background-color: var(--background);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nevron:hover:not(.selected) {
+    outline: 1px solid var(--text);
+}
+
+.track {
+    font-size: 15px;
+    font-weight: 100;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid var(--edge);
+    background-color: var(--background);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.track:hover:not(.selected) {
+    outline: 1px solid var(--text);
+}
+
+.trackLabel {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 13em;
+}
+
+.trackLength {
+    margin-left: auto;
+    font-size: 12px;
+    min-width: 15px;
+    text-align: center;
+    background: var(--background2);
+}
+
+.selected {
+    outline: 2px solid var(--elements2);
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container > div {
+    flex: 1 1 200px;
+    min-width: 150px;
+    background: lightblue;
+    padding: 20px;
+    text-align: center;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 6px;
+    color: var(--background);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    font-size: 20px;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.success {
+    background: var(--elements2);
+}
+
+.error {
+    background: var(--elements);
+}
+
+#mainPage {
+    margin-top: 3vw;
+}
+
+#mainPageButton {
+    min-width: 50vw;
+    min-height: 30vh;
+    font-family: cinzel;
+    font-size: calc(3vw + 3vh);
+    margin-top: 2vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#mainPageButton:hover {
+    outline: 5px solid var(--text);
+}
+
+#coverImg{
+    width: 10vw;
+    height: 10vw;
+    min-width: 250px;
+    min-height: 250px;
+}
+
+#coverImg:not(.hidden) {
+    display: block;
+    margin: auto;
+}
+
+.hidden{
+    display:none;
+}
+
+#musicPlayer {
+    display: grid;
+    gap: 12px;
+}
+
+.buttonRow {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.buttonRow > button {
+    min-width: 90px;
+}
+
+.sliderRow {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    gap: 12px;
+    align-items: center;
+}
+.sliderRow input[type="range"] {
+    width: 100%;
+    min-width: 0;
+}
+
+input[type="range"]{
+    -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:3px; background:#0e1016; border:1px solid var(--edge);
+}
+
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none; appearance:none; width:16px; height:16px; border-radius:4px;
+    background:transparent; border:2px solid var(--elements2);
+}
+
+input[type="range"]::-moz-range-thumb{
+    width:16px; height:16px; border-radius:4px; background:transparent; border:2px solid var(--elements2);
+}

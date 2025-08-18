@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lumina Player</title>
+    <script src="luminaPlayer.js"></script>
+    <script src="audioLevelDetection.js"></script>
+    <script src="jsmediatags.min.js"></script>
+    <script src="NoSleep.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1>Lumina Player</h1>
+        </header>
+        <article class="main">
+            <img id="coverImg" class="hidden" src="img/stalact.jpg" alt="">
+            <h2 id="trackName" style="text-align: center;"></h2>
+            <p id="artist" style="text-align: center;"></p>
+            <br><br>
+            <div id="musicPlayer">
+                <audio id="player" class="hidden" controls preload="metadata"></audio>
+                <div class="buttonRow">
+                    <button id="prevBtn">Prev</button>
+                    <button id="playBtn">Play</button>
+                    <button id="nextBtn">Next</button>
+                </div>
+                <div class="sliderRow">
+                    <input id="progresSlider" type="range" min="0" max="100" value="0" aria-label="Seek">
+                    <input id="volumeSlider" type="range" min="0" max="100" value="100" aria-label="Volume">
+                </div>
+            </div>
+            <br><br><hr>
+            <input type="color" id="colorPicker" value="#ffffff"><br>
+            <p id="level">Level: </p>
+            <p id="status">WebScoket: connecting…</p>
+        </article>
+        <aside class="aside">
+            <div class="asideHeader">
+                <h3 class="asideTitle">PLAYLIST</h3>
+                <button id="addFilesBtn">Add Files</button>
+                <input type="file" id="fileInput" accept="audio/*" multiple hidden>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
