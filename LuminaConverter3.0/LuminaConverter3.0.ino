@@ -29,9 +29,9 @@ enum Nevrons {
     NEV_OFF,
     NEV_STALACT,
     NEV_PETANK,
-    GROSSE_TETE,
-    NOIR,
-    ROCHER
+    NEV_GROSSE_TETE,
+    NEV_NOIR,
+    NEV_ROCHER
 };
 const char* nevronIDs[] = { "00:00:00:00", "CD:C5:D0:E2", "95:78:4F:06", "53:62:5E:F7", "D3:A0:53:F7", "D3:BB:2C:F7" };
 const uint8_t nevronCount = sizeof(nevronIDs) / sizeof(nevronIDs[0]);
