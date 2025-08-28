@@ -11,8 +11,6 @@
 // Pins
 #define SDA_PIN 21
 #define SCL_PIN 22
-#define PN532_DUMMY_IRQ_PIN 25
-#define PN532_DUMMY_RST_PIN 26
 #define PIN_WS2812B 16
 #define NUM_LEDS 62
 

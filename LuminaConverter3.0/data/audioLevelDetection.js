@@ -17,9 +17,9 @@ function connectWS() {
     const host = location.hostname || "192.168.4.1";
     const url  = `ws://${host}:81/`;
     ws = new WebSocket(url);
-    ws.onopen    = () => setStatus("WebSocket: connected");
-    ws.onclose   = () => { setStatus("WebSocket: disconnected"); setTimeout(connectWS, 700); }
-    ws.onerror   = () => setStatus("WebSocket: error");
+    ws.onopen = () => setStatus("WebSocket: connected");
+    ws.onclose = () => { setStatus("WebSocket: disconnected"); setTimeout(connectWS, 700); }
+    ws.onerror = () => setStatus("WebSocket: error");
     ws.onmessage = (ev) => console.log("WebSocket", ev.data);
 }
 connectWS();

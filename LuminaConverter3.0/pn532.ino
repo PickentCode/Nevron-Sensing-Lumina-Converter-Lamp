@@ -1,15 +1,12 @@
-Adafruit_PN532 nfc(PN532_DUMMY_IRQ_PIN, PN532_DUMMY_RST_PIN);
+Adafruit_PN532 nfc(SDA_PIN, SCL_PIN);
 
 unsigned long time_to_update_PN532 = 0;
 
 void setupPN532() {
-    Wire.begin(SDA_PIN, SCL_PIN);
-    Wire.setClock(100000);
-
     nfc.begin();
     uint32_t versiondata = nfc.getFirmwareVersion();
     if (!versiondata) {
-        Serial.print("Didn't find PN53x board");
+        Serial.println("Didn't find PN532 module. Check connections.");
         while (1);
     }
 
